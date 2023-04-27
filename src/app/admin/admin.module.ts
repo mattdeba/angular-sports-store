@@ -9,6 +9,7 @@ import { MaterialFeatures } from "./material.module";
 import { ProductTableComponent } from "./productTable.component";
 import { ProductEditorComponent } from "./productEditor.component";
 import { OrderTableComponent } from "./orderTable.component";
+import {HomeComponent} from "./home.component";
 let routing = RouterModule.forChild([
   { path: "auth", component: AuthComponent },
   // { path: "main", component: AdminComponent },
@@ -20,7 +21,8 @@ let routing = RouterModule.forChild([
       { path: "products/:mode", component: ProductEditorComponent },
       { path: "products", component: ProductTableComponent },
       { path: "orders", component: OrderTableComponent },
-      { path: "**", redirectTo: "products" }
+      { path: "home", component: HomeComponent},
+      { path: "**", redirectTo: "home" }
     ]
   },
   { path: "**", redirectTo: "auth" }
@@ -28,7 +30,7 @@ let routing = RouterModule.forChild([
 @NgModule({
   imports: [CommonModule, FormsModule, routing, MaterialFeatures],
   declarations: [AuthComponent, AdminComponent, ProductTableComponent,
-    ProductEditorComponent, OrderTableComponent],
+    ProductEditorComponent, OrderTableComponent, HomeComponent],
   providers: [AuthGuard]
 })
 export class AdminModule { }
